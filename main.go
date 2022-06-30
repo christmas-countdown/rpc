@@ -28,7 +28,7 @@ func setActivity() {
 			},
 			{
 				Label: "Add the bot",
-				Url:   "https://christmascountdown.live/discord",
+				Url:   "https://discord.com/oauth2/authorize?client_id=509851616216875019&permissions=537149440&scope=applications.commands%20bot",
 			},
 		},
 	})
