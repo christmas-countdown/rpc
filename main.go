@@ -22,11 +22,11 @@ func setActivity() {
 		Details:    fmt.Sprintf("%d sleeps left", sleeps),
 		LargeImage: "santa",
 		Buttons: []*client.Button{
-			&client.Button{
+			{
 				Label: "Watch the live countdown",
 				Url:   "https://christmascountdown.live",
 			},
-			&client.Button{
+			{
 				Label: "Add the bot",
 				Url:   "https://christmascountdown.live/discord",
 			},
