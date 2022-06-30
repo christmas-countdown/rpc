@@ -2,30 +2,41 @@ name: Build
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: 16
-    - uses: jaid/action-npm-install@v1.2.1
-    - name: Build
-      run: npm run build
-    - uses: actions/upload-artifact@v3
-      with:
-        name: "Christmas RPC.exe"
-        path: dist/christmas-rpc-win.exe
-    - uses: actions/upload-artifact@v3
-      with:
-        name: xmas-rpc-linux
-        path: dist/christmas-rpc-linux
-    - uses: actions/upload-artifact@v3
-      with:
-        name: xmas-rpc-macos
-        path: dist/christmas-rpc-macos
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: "^1.18.3"
+      - name: Build
+        run: scripts/build.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          name: cc-rpc-linux-amd64
+          path: bin/cc-rpc-linux-amd64
+      - uses: actions/upload-artifact@v3
+        with:
+          name: cc-rpc-macos-amd64
+          path: bin/cc-rpc-macos-amd64
+      - uses: actions/upload-artifact@v3
+        with:
+          name: cc-rpc-macos-arm64
+          path: bin/cc-rpc-macos-arm64
+      - uses: actions/upload-artifact@v3
+        with:
+          name: cc-rpc-win-amd64.exe
+          path: bin/cc-rpc-win-amd64.exe
+      - name: Upload to continuous release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          ls -lh bin/*
+          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+          bash upload.sh bin/*
