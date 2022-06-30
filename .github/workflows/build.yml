@@ -19,5 +19,13 @@ jobs:
       run: npm run build
     - uses: actions/upload-artifact@v3
       with:
-        name: binary
-        path: dist/
+        name: "Christmas RPC.exe"
+        path: dist/christmas-rpc-win.exe
+    - uses: actions/upload-artifact@v3
+      with:
+        name: xmas-rpc-linux
+        path: dist/christmas-rpc-linux
+    - uses: actions/upload-artifact@v3
+      with:
+        name: xmas-rpc-macos
+        path: dist/christmas-rpc-macos
