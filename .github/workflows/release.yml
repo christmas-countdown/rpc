@@ -14,19 +14,19 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: cc-rpc-linux-amd64
-          path: bin/cc-rpc-linux-amd64
+          path: bin
       - uses: actions/download-artifact@v3
         with:
           name: cc-rpc-macos-amd64
-          path: bin/cc-rpc-macos-amd64
+          path: bin
       - uses: actions/download-artifact@v3
         with:
           name: cc-rpc-macos-arm64
-          path: bin/cc-rpc-macos-arm64
+          path: bin
       - uses: actions/download-artifact@v3
         with:
           name: cc-rpc-win-amd64.exe
-          path: bin/cc-rpc-win-amd64.exe
+          path: bin
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: bin    
