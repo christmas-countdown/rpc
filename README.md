@@ -1,7 +1,7 @@
 # Christmas Countdown RPC
 
-<!-- [![Build](https://github.com/christmas-countdown/rpc/actions/workflows/build.yml/badge.svg)](https://github.com/christmas-countdown/rpc/actions/workflows/build.yml) -->
-[![Build](https://img.shields.io/github/workflow/status/christmas-countdown/rpc/Build?style=flat-square)](https://github.com/christmas-countdown/rpc/actions/workflows/build.yml)
+<!-- [![Build](https://github.com/christmas-countdown/rpc/actions/workflows/compile.yml/badge.svg)](https://github.com/christmas-countdown/rpc/actions/workflows/compile.yml) -->
+[![Build](https://img.shields.io/github/workflow/status/christmas-countdown/rpc/Build?style=flat-square)](https://github.com/christmas-countdown/rpc/actions/workflows/compile.yml)
 
 A super simple program to add a Christmas Countdown to your Discord status.
 
