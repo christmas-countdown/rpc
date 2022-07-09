@@ -11,6 +11,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@v3
+        with:
+          path: bin
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: bin    
       - name: Upload to continuous release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
