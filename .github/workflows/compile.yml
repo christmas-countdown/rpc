@@ -1,10 +1,7 @@
 name: Build
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_call:
 
 jobs:
   build:
@@ -32,11 +29,3 @@ jobs:
         with:
           name: cc-rpc-win-amd64.exe
           path: bin/cc-rpc-win-amd64.exe
-      - name: Upload to continuous release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -e
-          ls -lh bin/*
-          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-          bash upload.sh bin/*

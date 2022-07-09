@@ -1,0 +1,21 @@
+name: Continuous release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload to continuous release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          ls -lh bin/*
+          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+          bash upload.sh bin/*
