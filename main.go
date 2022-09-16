@@ -50,11 +50,11 @@ func setActivity() {
 		Buttons: []*client.Button{
 			{
 				Label: "Watch the live countdown",
-				Url:   "https://christmascountdown.live",
+				Url:   "https://christmascountdown.live/?utm_source=rpc&utm_medium=button&utm_campaign=website",
 			},
 			{
 				Label: "Add the bot",
-				Url:   "https://christmascountdown.live/discord",
+				Url:   "https://christmascountdown.live/discord?utm_source=rpc&utm_medium=button&utm_campaign=bot",
 			},
 		},
 	})
