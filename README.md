@@ -18,14 +18,38 @@ Here it is using just 0.7MB (0.0007GB):
 
 ### Windows
 
-1. Download [`ChristmasCountdownRPC.exe`](https://github.com/christmas-countdown/rpc/releases/download/continuous/cc-rpc-win-amd64.exe).
+1. Download [`cc-rpc-win-amd64.exe`](https://github.com/christmas-countdown/rpc/releases/download/continuous/cc-rpc-win-amd64.exe).
    > ⚠️ Your browser will probably give you a warning when you try to download it and Windows will try to stop you from running it. In both cases you can click "Keep" or "Run anyway". It's not a virus, as you can see in [main.go](https://github.com/christmas-countdown/rpc/blob/main/main.go).
-2. Optionally, [make it run at startup](https://support.microsoft.com/en-us/windows/add-an-app-to-run-automatically-at-startup-in-windows-10-150da165-dcd9-7230-517b-cf3c295d89dd)
+2. Optionally, [make it run at startup](https://support.microsoft.com/en-us/windows/add-an-app-to-run-automatically-at-startup-in-windows-10-150da165-dcd9-7230-517b-cf3c295d89dd). It has an extremely minimal performance impact.
+
+#### How to make it run in the background (recommended)
+
+Normally, running the `.exe` file will open a terminal window.
+To make it hidden (run in the background) create a file, `ChristmasCountdownRPC.vbs`, **in the same folder** that the `.exe` is in, and paste the following:
+```vb
+Dim WShell
+Set WShell = CreateObject("WScript.Shell")
+WShell.Run "cc-rpc-win-amd64.exe", 0
+Set WShell = Nothing
+```
+
+> **Note**
+> 
+> If you have renamed the `.exe` file, replace `cc-rpc-win-amd64` with the new name in your `.vbs` file.
+> 
+> **Example:**
+> 
+> ```diff
+> - WShell.Run "cc-rpc-win-amd64.exe", 0
+> + WShell.Run "christmas.exe", 0
+> ```
+
+⚠️ If you want the program to run automatically at startup, create a shortcut in the startup folder **for the `.vbs` file** instead of the `.exe` file, as this will start it in the background. 
 
 ### Other
 
 1. Download the build for your system from the [releases](https://github.com/christmas-countdown/rpc/releases) page.
-2. Optionally, make it run at startup ([Ubuntu guide](https://www.howtogeek.com/686952/how-to-manage-startup-programs-on-ubuntu-linux))
+2. Optionally, make it run at startup ([example guide for Ubuntu](https://www.howtogeek.com/686952/how-to-manage-startup-programs-on-ubuntu-linux))
 
 ## Screenshots
 
