@@ -19,7 +19,7 @@ Here it is using just 0.7MB (0.0007GB):
 ### Windows
 
 1. Download [`cc-rpc-win-amd64.exe`](https://github.com/christmas-countdown/rpc/releases/download/continuous/cc-rpc-win-amd64.exe).
-   > ⚠️ Your browser will probably give you a warning when you try to download it and Windows will try to stop you from running it. In both cases you can click "Keep" or "Run anyway". It's not a virus, as you can see in [main.go](https://github.com/christmas-countdown/rpc/blob/main/main.go).
+   > ⚠️ Your browser will probably give you a warning when you try to download it and Windows will try to stop you from running it. In both cases, you can click "Keep" or "Run anyway". It's not a virus, as you can see in [main.go](https://github.com/christmas-countdown/rpc/blob/main/main.go).
 2. Optionally, [make it run at startup](https://support.microsoft.com/en-us/windows/add-an-app-to-run-automatically-at-startup-in-windows-10-150da165-dcd9-7230-517b-cf3c295d89dd). It has an extremely minimal performance impact.
 
 #### How to make it run in the background (recommended)
@@ -33,7 +33,7 @@ WShell.Run "cc-rpc-win-amd64.exe", 0
 Set WShell = Nothing
 ```
 
-> **Note**
+> [!NOTE]
 > 
 > If you have renamed the `.exe` file, replace `cc-rpc-win-amd64` with the new name in your `.vbs` file.
 > 
