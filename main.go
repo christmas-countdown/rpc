@@ -37,7 +37,11 @@ func setActivity() {
 	}
 	diff := christmas.Unix() - now.Unix()
 	sleeps := int64(math.Ceil(float64(diff) / 60 / 60 / 24))
-	details := fmt.Sprintf("%d sleeps left", sleeps)
+	if sleeps > 1 {
+	        details := fmt.Sprintf("%d sleeps left", sleeps)
+        } else {
+		details := fmt.Sprintf("%d sleep left", sleeps)
+	}
 	state := "until Christmas"
 	if now.Month() == 12 && now.Day() == 25 {
 		details = "It's Christmas Day!"
